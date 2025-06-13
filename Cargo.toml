@@ -1,11 +1,11 @@
 [package]
-name = "deadwiki"
+name = "wikirs"
 version = "0.1.28-dev"
 authors = ["chris west <c@xvxx.io>"]
 edition = "2018"
 license = "MIT"
 description = "dead simple personal wiki"
-repository = "https://github.com/xvxx/deadwiki"
+repository = "https://github.com/yonasBSD/wiki.rs"
 readme = "README.md"
 keywords = ["wiki", "markdown", "cli"]
 categories = ["command-line-utilities"]
@@ -14,7 +14,7 @@ exclude = [
 ]
 
 [[bin]]
-name = "dead"
+name = "wikirs"
 path = "src/main.rs"
 
 [features]
@@ -27,7 +27,7 @@ pre-release-replacements = [
 dev-version-ext = "dev"
 
 [build-dependencies]
-vial = "0.1.8"
+vial = "0.1.9"
 
 [dependencies]
 hatter = { git = "https://github.com/tdryer/hatter", branch = "scope-fix" }

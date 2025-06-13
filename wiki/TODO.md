@@ -1,4 +1,4 @@
-# deadwiki todo
+# wikirs todo
 
 - [ ] redo css
     - [ ] mobile view

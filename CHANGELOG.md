@@ -24,7 +24,7 @@ Small bugfix release:
 
 ## 0.1.24
 
-- deadwiki now uses [Hatter](https://github.com/xvxx/hatter) for its
+- wikirs now uses [Hatter](https://github.com/xvxx/hatter) for its
   HTML templates. This should hopefully let us make the server-side
   rendered views a bit more interesting.
 - A few JS keyboard shortcut bugfixes.
@@ -47,32 +47,32 @@ Small bugfix release:
   text and were annoying me when trying to copy and paste. You can use
   the `ctrl-e` keyboard shortcut to quickly jump to the edit page,
   instead.
-- deadwiki will now serve non-Markdown files in your wiki, meaning
+- wikirs will now serve non-Markdown files in your wiki, meaning
   local images are now supported! You'll have to add them to your
   wiki directory's structure manually for now, but we may add a simple
   drag-and-drop upload function for lazy folks (like me...) in the
   future.
 - We've done a bit of internal refactoring. There may be (more) bugs.
-- deadwiki pages are now case sensitive, just like most file systems.
+- wikirs pages are now case sensitive, just like most file systems.
 - The `gui` feature has been removed. We may revisit it in the future,
-  perhaps as a tray icon-style app, but for now I am using deadwiki as
+  perhaps as a tray icon-style app, but for now I am using wikirs as
   a "pinned tab" in my browser and it is pretty convenient. I'm more
   interested in a TUI than a WebView app at this point, as far as
   complementing the core web app goes.
 
 **Dev notes:**
 
-- deadwiki is evolving from a "web app" to a library that is wrapped
+- wikirs is evolving from a "web app" to a library that is wrapped
   by a web app. This means creating, finding, editing wiki pages,
   etc, is done in the `DB` module instead of directly in the HTTP
   routes. Besides being a nicer way to organize and test the code, it
   means we will be able to add a lightweight TUI in the future that
   works the same as the web app.
-- Similarly, deadwiki is evolving from relying on Rust libraries to
+- Similarly, wikirs is evolving from relying on Rust libraries to
   relying on UNIX commands. Our "search" is powered by `grep`, for
   example. My plan is to allow you to configure which commands are
   used for which actions, so you can easily swap in `ripgrep` for
-  `grep` you'd like - without having to recompile deadwiki itself.
+  `grep` you'd like - without having to recompile wikirs itself.
 
 ## 0.1.22
 
@@ -82,7 +82,7 @@ Small bugfix release:
 
 - Added `i` keyboard shortcut to edit the current page.
 - The "new" form now prefills the title with the current directory.
-- Fixed `cargo install deadwiki`.
+- Fixed `cargo install wikirs`.
 
 ## 0.1.20
 
@@ -103,12 +103,12 @@ Jump-to-page via fuzzy finder is now live! Use `ctrl-j` to open the
 menu and start typing a page title. This will gain functionality in
 the future.
 
-This release also switches deadwiki to a new backend,
+This release also switches wikirs to a new backend,
 [Vial](https://vial.sh). **Vial** is a micro micro-framework for Rust.
 This change has cut the dependency count from 72 to 42 and release
 compile time from ~22s to ~8s on my machine:
 
-https://github.com/xvxx/deadwiki/commit/c7b844a90dc433703d64059ce7de5bebc5d4fd8f
+https://github.com/yonasBSD/wiki.rs/commit/c7b844a90dc433703d64059ce7de5bebc5d4fd8f
 
 Enjoy!
 
@@ -150,7 +150,7 @@ Enjoy!
 ## 0.1.13
 
 - First release with a working GUI mode. Launch it by compiling with
-  the `gui` feature and running deadwiki with `-g`:
+  the `gui` feature and running wikirs with `-g`:
 
   cargo run --features gui -- -g
 

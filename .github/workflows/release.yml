@@ -43,12 +43,12 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
       - name: Package Binary
-        run: cd target/armv7-unknown-linux-gnueabihf/release && tar zcvf deadwiki-${{ steps.get_version.outputs.VERSION }}-linux-armv7.tgz dead
+        run: cd target/armv7-unknown-linux-gnueabihf/release && tar zcvf wikirs-${{ steps.get_version.outputs.VERSION }}-linux-armv7.tgz dead
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: deadwiki-linux-armv7
-          path: target/armv7-unknown-linux-gnueabihf/release/deadwiki-${{ steps.get_version.outputs.VERSION }}-linux-armv7.tgz
+          name: wikirs-linux-armv7
+          path: target/armv7-unknown-linux-gnueabihf/release/wikirs-${{ steps.get_version.outputs.VERSION }}-linux-armv7.tgz
 
   build_linux:
     name: Build for Linux x86_64
@@ -77,12 +77,12 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
       - name: Package Binary
-        run: cd target/release && tar zcvf deadwiki-${{ steps.get_version.outputs.VERSION }}-linux-x86_64.tgz dead
+        run: cd target/release && tar zcvf wikirs-${{ steps.get_version.outputs.VERSION }}-linux-x86_64.tgz dead
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: deadwiki-linux-x86_64
-          path: target/release/deadwiki-${{ steps.get_version.outputs.VERSION }}-linux-x86_64.tgz
+          name: wikirs-linux-x86_64
+          path: target/release/wikirs-${{ steps.get_version.outputs.VERSION }}-linux-x86_64.tgz
 
   build_macos:
     name: Build for macOS
@@ -119,12 +119,12 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
       - name: Package Binary
-        run: cd target/release && zip -r deadwiki-${{ steps.get_version.outputs.VERSION }}-macos.zip dead
+        run: cd target/release && zip -r wikirs-${{ steps.get_version.outputs.VERSION }}-macos.zip dead
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: deadwiki-macos
-          path: target/release/deadwiki-${{ steps.get_version.outputs.VERSION }}-macos.zip
+          name: wikirs-macos
+          path: target/release/wikirs-${{ steps.get_version.outputs.VERSION }}-macos.zip
 
   create:
     name: Create Release
@@ -139,24 +139,24 @@ jobs:
       - name: Download macOS artifact
         uses: actions/download-artifact@v1
         with:
-          name: deadwiki-macos
+          name: wikirs-macos
       - name: Download Linux (x86_64) artifact
         uses: actions/download-artifact@v1
         with:
-          name: deadwiki-linux-x86_64
+          name: wikirs-linux-x86_64
       - name: Download Linux (armv7) artifact
         uses: actions/download-artifact@v1
         with:
-          name: deadwiki-linux-armv7
+          name: wikirs-linux-armv7
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           draft: true
           prerelease: true
           files: |
-            deadwiki-macos/deadwiki-${{ steps.get_version.outputs.VERSION }}-macos.zip
-            deadwiki-linux-x86_64/deadwiki-${{ steps.get_version.outputs.VERSION }}-linux-x86_64.tgz
-            deadwiki-linux-armv7/deadwiki-${{ steps.get_version.outputs.VERSION }}-linux-armv7.tgz
+            wikirs-macos/wikirs-${{ steps.get_version.outputs.VERSION }}-macos.zip
+            wikirs-linux-x86_64/wikirs-${{ steps.get_version.outputs.VERSION }}-linux-x86_64.tgz
+            wikirs-linux-armv7/wikirs-${{ steps.get_version.outputs.VERSION }}-linux-armv7.tgz
           body_path: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

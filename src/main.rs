@@ -1,4 +1,4 @@
-use deadwiki::{app, db, sync};
+use wikirs::{app, db, sync};
 
 fn main() {
     let args = std::env::args().skip(1).collect::<Vec<String>>();
@@ -36,7 +36,7 @@ fn main() {
         }
     }
 
-    println!("~> deadwiki v{}", env!("CARGO_PKG_VERSION"));
+    println!("~> wikirs v{}", env!("CARGO_PKG_VERSION"));
 
     if path.is_empty() {
         return print_help();
@@ -70,7 +70,7 @@ fn main() {
 }
 
 fn print_version() {
-    println!("deadwiki v{}", env!("CARGO_PKG_VERSION"))
+    println!("wikirs v{}", env!("CARGO_PKG_VERSION"))
 }
 
 fn print_help() {

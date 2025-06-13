@@ -173,7 +173,7 @@ fn show_index(req: &Request) -> io::Result<Response> {
     env.set("nested?", |args: hatter::Args| {
         Ok(args.need_string(0)?.contains('/').into())
     });
-    req.render("deadwiki", env.render("html/index.hat")?)
+    req.render("wikirs", env.render("html/index.hat")?)
 }
 
 fn show_page(req: &Request, name: &str) -> io::Result<Response> {

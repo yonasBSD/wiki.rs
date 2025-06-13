@@ -7,27 +7,27 @@ watch:
 	cargo watch -i wiki/ -x 'run wiki/ -p 9999'
 
 .PHONY: debug
-debug: target/debug/dead
+debug: target/debug/wikirs
 	cp $< .
 
 .PHONY: test
 test:
 	cargo test --all-features
 
-target/debug/dead: src/*.rs
+target/debug/wikirs: src/*.rs
 	$(CARGO_DEBUG)
 
 .PHONY: release
-release: target/release/dead
+release: target/release/wikirs
 
-target/release/dead: src/*.rs
+target/release/wikirs: src/*.rs
 	$(CARGO_RELEASE)
 
 clean:
 	rm -rf target
 
 install: release
-	cp target/release/dead $(PREFIX)/bin
+	cp target/release/wikirs $(PREFIX)/bin
 
 uninstall: release
-	rm -f $(PREFIX)/bin/dead
+	rm -f $(PREFIX)/bin/wikirs

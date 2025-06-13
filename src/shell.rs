@@ -1,4 +1,4 @@
-/// Run a shell command, ex: shell!("grep -R '#deadwiki' {}", dir())
+/// Run a shell command, ex: shell!("grep -R '#wikirs' {}", dir())
 macro_rules! shell {
     ($cmd:expr) => {{
         #[cfg(debug_assertions)]

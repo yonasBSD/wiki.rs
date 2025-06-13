@@ -1,8 +1,8 @@
 <img src="/assets/img/rip.gif" alt="R.I.P." height="200" align="left">
 
-# RIP deadwiki
+# RIP wikirs
 
-A fun project that I used almost constantly in 2020, deadwiki was an 
+A fun project that I used almost constantly in 2020, wikirs was an 
 experiment in organizing information,
 [developing a web library](https://github.com/xvxx/vial),
 and creating a [weird web language](https://github.com/xvxx/hatter).
@@ -11,16 +11,16 @@ It is now abandoned and archived. Thanks for all the PRs!
 
 ---
 
-# deadwiki
+# wikirs
 
-**deadwiki** is a Markdown-powered wiki that uses your filesystem as
+**wikirs** is a Markdown-powered wiki that uses your filesystem as
 its db. This means you can keep your wiki in a git repository and edit
 content with your text editor, or read and modify pages `with style`
 using its 1990s-era web interface.
 
 ---
 
-There are two built-in ways to access your deadwiki:
+There are two built-in ways to access your wikirs:
 
 - Run the local webserver and use the (minimal) HTML UI.
 - Just use your filesystem. Regular Markdown files. `cat`, `ls`, etc.
@@ -40,7 +40,7 @@ like:
 
     $ s https://git.coolstuff.com/some/repo
 
-With deadwiki, I symlinked both of those files into my `~/.deadwiki`
+With wikirs, I symlinked both of those files into my `~/.wikirs`
 dir and can browse them using a fancy, 1990s-era HTML interface.
 
 ## ~ installation ~
@@ -51,7 +51,7 @@ install.
 
 Once you've got both of them you can install it with:
 
-    cargo install deadwiki
+    cargo install wikirs
 
 That'll give you a handy dandy `dead` CLI tool, if everything is setup
 and `~/.cargo/bin` is in your `$PATH`. You should now be able to run
@@ -60,11 +60,11 @@ and `~/.cargo/bin` is in your `$PATH`. You should now be able to run
 ## ~ getting started ~
 
 To begin, create an empty directory or find one already populated with
-`.md` files. This is your deadwiki. Simply point the CLI utility at it
+`.md` files. This is your wikirs. Simply point the CLI utility at it
 to get going:
 
     $ dead my-wiki-dir/
-    -> deadwiki serving my-wiki-dir/ at http://0.0.0.0:8000
+    -> wikirs serving my-wiki-dir/ at http://0.0.0.0:8000
 
 Now visit http://0.0.0.0:8000/ in your browser!
 
@@ -80,7 +80,7 @@ In addition to [CommonMark], Markdown files can link to each other by
 putting the `[Page Name]` in brackets. Like most wikis, it'll either
 be a link to the actual page or a link to create it.
 
-deadwiki also includes support for `#hashtags`. Any hashtag appearing
+wikirs also includes support for `#hashtags`. Any hashtag appearing
 in wiki text will be linked to a search page that lists all wiki pages
 containing that hashtag.
 
@@ -101,7 +101,7 @@ changes you make even outside of the web UI.
 
 There are two modes: browsing and editing. Editing is powered by
 [SimpleMDE] and includes all its default shortcuts (shown below), plus
-a few deadwiki-specific shortcuts.
+a few wikirs-specific shortcuts.
 
 Browsing mode includes a few keyboard shortcuts to make navigation
 quicker and more nimble.
@@ -145,8 +145,8 @@ The code is in pretty rough shape right now, as this is mostly a
 prototype-in-progress. But you can hack on it pretty easily with
 [cargo]:
 
-    $ git clone https://github.com/xvxx/deadwiki
-    $ cd deadwiki
+    $ git clone https://github.com/yonasBSD/wiki.rs
+    $ cd wikirs
     $ cargo run wiki/
 
 There's a basic wiki included that shows off some features.
@@ -183,13 +183,13 @@ There's a basic wiki included that shows off some features.
 
 Please direct all known and unknown (suspected) bugs to this URL:
 
-- https://github.com/xvxx/deadwiki/issues/new
+- https://github.com/yonasBSD/wiki.rs/issues/new
 
 ## ~ credits ~
 
 All SVG icons are Feather icons: https://feathericons.com/
 
-deadwiki's source is licensed under the [MIT License].
+wikirs's source is licensed under the [MIT License].
 
 [cargo]: https://rustup.rs
 [simplemde]: https://simplemde.com/
