@@ -30,7 +30,7 @@ dev-version-ext = "dev"
 vial = "0.1.8"
 
 [dependencies]
-hatter = "0.1.4"
+hatter = { git = "https://github.com/tdryer/hatter", branch = "scope-fix" }
 vial = { version = "0.1.8", features = ["cookies"] }
 
 pulldown-cmark = { version = "0.7", default-features = false }
